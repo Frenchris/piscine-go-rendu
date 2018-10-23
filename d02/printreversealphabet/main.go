@@ -4,7 +4,7 @@ import "github.com/01-edu/O1"
 
 func printReverseAlphabet() {
 	i := byte('z')
-	for i >= 'a'{
+	for i >= 'a' {
 		O1.Putchar(i)
 		i--
 	}
