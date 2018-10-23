@@ -1,6 +1,6 @@
 package main
 
-import "O1"
+import "github.com/01-edu/O1"
 
 func printalphabet() {
   i := byte('a')
