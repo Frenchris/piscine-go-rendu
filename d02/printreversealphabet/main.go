@@ -1,6 +1,6 @@
 package main
 
-import "01"
+import "github.com/01-edu/O1"
 
 func printReverseAlphabet() {
   i := byte('z')
