@@ -2,7 +2,7 @@ package main
 
 import "github.com/01-edu/O1"
 
-func printalphabet() {
+func printAlphabet() {
 	i := byte('a')
 	for i <= 'z' {
 		O1.Putchar(i)
@@ -11,5 +11,5 @@ func printalphabet() {
 }
 
 func main() {
-	printalphabet()
+	printAlphabet()
 }
