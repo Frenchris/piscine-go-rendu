@@ -4,6 +4,6 @@ func isNegative(n int) {
 	if n >= 0 {
 		O1.Putchar('P')
 	} else {
-		O!.Putchar('N')
+		O1.Putchar('N')
 	}
 }
