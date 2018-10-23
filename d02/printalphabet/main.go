@@ -11,5 +11,5 @@ func printalphabet() {
 }
 
 func main() {
-	printalphabet() 
+	printalphabet()
 }
