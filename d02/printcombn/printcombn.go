@@ -1,33 +1,65 @@
 package main
 
-import "github.com/01-edu/O1"
+import "O1"
 
-func show(a byte, b byte, c byte) {
-	if a < b && b < c {
-		O1.Putchar(a)
-		O1.Putchar(b)
-		O1.Putchar(c)
-		if !(a == '7' && b == '8' && c == '9') {
-			O1.Putchar(',')
-			O1.Putchar(' ')
-		}
+func show(n int, table [9]int, tmax [9]int) {
+
+	i := 0
+	for i < n {
+		O1.Putchar((byte)(table[i] + '0'))
+		i++
+	}
+	if table[0] != tmax[0] {
+		O1.Putchar(',')
+		O1.Putchar(' ')
 	}
 }
 
-func printCombn() {
-	a := byte('0')
-	b := byte('0')
-	c := byte('0')
-	for a <= '7' {
-		for b <= '8' {
-			for c <= '9' {
-				show(a, b, c)
-				c++
-			}
-			c = '0'
-			b++
+func printComb1() {
+	table := [9]int{0}
+	tmax := [9]int{9}
+	for table[0] <= tmax[0] {
+		show(1, table, tmax)
+		table[0]++
+	}
+}
+
+func printCombn(n int) {
+	table := [9]int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+	tmax := [9]int{}
+
+	if n == 1 {
+		printComb1()
+	} else {
+		i := n - 1
+		j := 9
+		for i >= 0 {
+			tmax[i] = j
+			i--
+			j--
 		}
-		b = '0'
-		a++
+		i = n - 1
+		for table[0] < tmax[0] {
+			if table[i] != tmax[i] {
+				show(n, table, tmax)
+				table[i]++
+			}
+			if table[i] == tmax[i] {
+				if table[i-1] != tmax[i-1] {
+					show(n, table, tmax)
+					table[i-1]++
+					j = i
+					for j < n {
+						table[j] = table[j-1] + 1
+						j++
+					}
+					i = n - 1
+				}
+			}
+			for table[i] == tmax[i] && table[i-1] == tmax[i-1] && i > 1 {
+				i--
+			}
+		}
+		show(n, table, tmax)
 	}
 }
