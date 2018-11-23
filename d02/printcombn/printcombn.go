@@ -1,6 +1,6 @@
 package main
 
-import "O1"
+import "github.com/01-edu/O1"
 
 func show(n int, table [9]int, tmax [9]int) {
 
